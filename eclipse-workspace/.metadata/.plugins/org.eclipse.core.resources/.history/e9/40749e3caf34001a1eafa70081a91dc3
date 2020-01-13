@@ -1,0 +1,21 @@
+package Pages;
+
+import static org.junit.Assert.assertEquals;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class secretPage extends BasePage{
+	
+	public secretPage(WebDriver browser) {
+		super(browser);
+	}
+	
+	public MePage readme() {
+		browser.findElement(By.className("account")).click();
+		
+		return new MePage(browser);
+	}
+
+}

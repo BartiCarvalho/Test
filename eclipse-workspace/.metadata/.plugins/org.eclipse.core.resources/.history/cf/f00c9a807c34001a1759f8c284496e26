@@ -1,0 +1,14 @@
+package TestWeb;
+
+import org.junit.Test;
+
+public class UserLoginTest {
+
+	@Test
+	
+	public void testLogin() {
+		
+		
+	}
+	
+}

@@ -1,0 +1,19 @@
+API
+
+Scenario 1: Search for User
+Given: verify User Existence
+When: when I search for registered users
+Then: the user registration is found.
+
+Scenario 2: Verify the User Password
+Given: verify User Password
+When:: when I search for user password
+Then: the user registration is found, and your password is displayed.
+
+
+Web site
+
+Scenario 1: Log In
+Given: access the site login screen
+When: when  I enter my login details
+Then: login to the page is successful.

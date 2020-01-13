@@ -1,0 +1,37 @@
+package Test_CIand.rest.test;
+
+import static io.restassured.RestAssured.given;
+import org.junit.Assert;
+import org.junit.Test;
+
+import Test_CIandT.rest.core.BaseTest;
+import io.restassured.RestAssured;
+import io.restassured.http.Method;
+import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
+
+public class UserTest extends BaseTest {
+
+	@Test
+	public void findUserOne() {
+		given()
+		.when()
+			.get("/1")
+		.then()
+			.statusCode(200)
+			
+		;
+		
+		
+		
+		
+		Response response = RestAssured.request(Method.GET, "https://fakerestapi.azurewebsites.net/api/Users");
+		Assert.assertTrue(response.getBody().asString().contains("User 1"));
+		Assert.assertTrue(response.statusCode() == 200);
+		Assert.assertTrue("O status code deveria ser 200", response.statusCode() == 200);
+		Assert.assertEquals(200, response.statusCode());
+		
+		ValidatableResponse validacao = response.then();
+		validacao.statusCode(200);
+}
+}

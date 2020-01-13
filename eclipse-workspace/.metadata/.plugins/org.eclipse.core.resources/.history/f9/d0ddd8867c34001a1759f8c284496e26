@@ -1,0 +1,15 @@
+package TestWeb;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class UserLoginTest {
+
+	@Test
+	
+	public void testLogin() {
+		
+		Assert.assertEquals(1, 1);
+	}
+	
+}

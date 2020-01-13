@@ -1,0 +1,42 @@
+package Pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class LoginFormPage {
+	private WebDriver browser;
+	
+	public LoginFormPage(WebDriver browser) {
+		this.browser = browser;
+		
+	}
+
+	public LoginFormPage typeLogin(String login) {
+		browser.findElement(By.id("email")).sendKeys("login");
+		
+		return this;
+		
+	}
+	
+	public LoginFormPage typePassword(String password) {
+		browser.findElement(By.id("passwd")).sendKeys("password");
+		
+		return this;
+	}
+	
+	public secretPage clickLogin(){
+		browser.findElement(By.id("SubmitLogin")).click();
+		
+		return new secretPage(browser);
+		
+	}
+	
+	puclic secretPage dologin(String login, String password) {
+		browser.findElement(By.id("email")).sendKeys("login");
+		browser.findElement(By.id("passwd")).sendKeys("password");
+		browser.findElement(By.id("SubmitLogin")).click();
+		
+		return new secretPage(browser);
+	}
+}
+

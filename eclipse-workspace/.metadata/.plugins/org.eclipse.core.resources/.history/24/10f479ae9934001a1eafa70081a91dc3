@@ -1,0 +1,14 @@
+package Help;
+
+import com.sun.jna.platform.win32.Sspi.TimeStamp;
+
+public class generator {
+	
+	public static String datehourfromdoc(){
+		Time
+		
+	}
+	
+	
+
+}

@@ -1,0 +1,18 @@
+package Help;
+
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+
+import com.sun.jna.platform.win32.Sspi.TimeStamp;
+
+public class generator {
+	
+	public static String datehourfromdoc(){
+		Timestamp ts = new Timestamp(System.currentTimeMillis());
+		return new SimpleDateFormat("yyyymmddhhss").format(ts);
+		
+	}
+	
+	
+
+}

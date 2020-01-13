@@ -1,0 +1,44 @@
+package TestWeb;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class UserLoginTest {
+	private WebDriver browser;
+
+	@Before
+	public void setUp() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Thatiane\\drivers\\chromedriver.exe");
+		browser = new ChromeDriver();
+		browser.get("http://automationpractice.com/index.php");
+		browser.manage().window().maximize();
+	}
+	
+	@Test
+	
+	public void testLogin() {
+				
+		browser.findElement(By.className("login")).click();
+		browser.findElement(By.id("email")).sendKeys("barti.carvalho@gmail.com");
+		browser.findElement(By.id("passwd")).sendKeys("84236210Lilica!");
+		browser.findElement(By.id("SubmitLogin")).click();
+		WebElement user = browser.findElement(By.className("account"));
+		String nameUser = user.getText();
+		assertEquals("Bartira Carvalho", nameUser);
+		
+	}
+		
+	@After
+	public void tearDown() {
+		  browser.quit();
+		}
+
+	
+}

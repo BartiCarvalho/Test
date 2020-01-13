@@ -1,0 +1,42 @@
+package Test_CIand.rest.test;
+
+import static io.restassured.RestAssured.given;
+import org.junit.Assert;
+import org.junit.Test;
+
+import Test_CIandT.rest.core.BaseTest;
+import io.restassured.RestAssured;
+import io.restassured.http.Method;
+import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
+
+public class UserTest extends BaseTest {
+
+	@Test
+	public void findUserOne() {
+		given()
+		.when()
+			.get("/1")
+		.then()
+			.statusCode(200)
+			;
+	}
+	
+	@Test
+	public void includUserBartira() {
+		given()
+			.log().all()
+			.body("{\"Password\": \"84236210\",\r\n" + 
+					"	 \"UserName\": \"Bartira\"}")
+		.when()
+			.post("Users")
+		.then()
+			.log().all()
+			.statusCode(201)
+			;
+		
+}
+
+	{"Password": "84236210",
+	 "UserName": "Bartira"}
+	}

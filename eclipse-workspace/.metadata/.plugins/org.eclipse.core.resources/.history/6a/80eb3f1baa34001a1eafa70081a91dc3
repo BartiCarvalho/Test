@@ -1,0 +1,13 @@
+package Pages;
+
+import org.openqa.selenium.WebDriver;
+
+public class secretPage {
+	
+	private WebDriver browser;
+	
+	public secretPage(WebDriver browser) {
+		this.browser = browser;
+	}
+
+}

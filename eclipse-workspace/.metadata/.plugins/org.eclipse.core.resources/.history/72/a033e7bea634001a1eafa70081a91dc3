@@ -1,0 +1,56 @@
+package TestWeb;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.TestName;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import Help.generator;
+import Help.screenShot;
+
+public class UserLoginTest {
+	private WebDriver browser;
+	
+	@Rule
+	public TestName test = new TestName();
+
+	@Before
+	public void setUp() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Thatiane\\drivers\\chromedriver.exe");
+		browser = new ChromeDriver();
+		browser.get("http://automationpractice.com/index.php");
+		browser.manage().window().maximize();
+	}
+	
+	@Test
+	
+	public void existingUser() {
+				
+		browser.findElement(By.className("login")).click();
+		browser.findElement(By.id("email")).sendKeys("barti.carvalho@gmail.com");
+		browser.findElement(By.id("passwd")).sendKeys("84236210Lilica!");
+		browser.findElement(By.id("SubmitLogin")).click();
+		
+		//String screenShotDoc = "C:\\Users\\Thatiane\\Screen" + generator.datehourfromdoc() + test.getMethodName() + ".png";
+		//screenShot.take(browser, screenShotDoc);
+		
+		WebElement user = browser.findElement(By.className("account"));
+		String nameUser = user.getText();
+		assertEquals("Bartira Carvalho", nameUser);
+		
+	}
+		
+	@After
+	public void tearDown() {
+		  browser.quit();
+		}
+
+	
+}

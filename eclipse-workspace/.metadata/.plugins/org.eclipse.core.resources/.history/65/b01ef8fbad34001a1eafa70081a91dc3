@@ -1,0 +1,55 @@
+package TestWeb;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.TestName;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import Help.Web;
+import Pages.LoginPage;
+
+//import Help.generator;
+//import Help.screenShot;
+
+public class UserLoginTest {
+	private WebDriver browser;
+	
+	@Rule
+	public TestName test = new TestName();
+
+	@Before
+	public void setUp() {
+		browser = Web.createChrome();
+		
+	}
+	
+	@Test
+	
+	public void existingUser() {
+		new LoginPage(browser)
+		.clickLoginIn()
+		.typeLogin("barti.carvalho@gmail.com")
+		.typePassword("84236210Lilica!")
+		.clickLogin();
+		
+			
+		WebElement user = browser.findElement(By.className("account"));
+		String nameUser = user.getText();
+		assertEquals("Bartira Carvalho", nameUser);
+		
+	}
+		
+	@After
+	public void tearDown() {
+		  browser.quit();
+		}
+
+	
+}
